@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You ❤️</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffe6f2, #ffccd5, #ffcce0);
+      background-size: 400% 400%;
+      animation: bgmove 10s ease infinite;
+      color: #d6336c;
+    }
+
+    @keyframes bgmove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 100px;
+      color: #b30059;
+      text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    }
+
+    .bear {
+      font-size: 100px;
+      margin: 20px 0;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #ff4d79;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background-color: #ff1a66;
+      transform: scale(1.05);
+    }
+
+    #message {
+      font-size: 2em;
+      margin-top: 50px;
+      color: #b30059;
+      font-weight: bold;
+      text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    }
+
+    /* Floating hearts animation */
+    .heart {
+      position: fixed;
+      color: #ff6699;
+      font-size: 24px;
+      animation: float 6s ease-in infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>I Love You ❤️</h1>
+  <div class="bear">🧸</div>
+  <h2>Do you love Shahroz?</h2>
+  <button onclick="answer('yes')">Yes 💖</button>
+  <button onclick="answer('no')">No 🙈</button>
+
+  <div id="message"></div>
+
+  <script>
+    function answer(response) {
+      const msg = document.getElementById("message");
+      if (response === "yes") {
+        msg.textContent = "💞 SHAHROZ APKA HUA 💞";
+      } else {
+        msg.textContent = "😜 NA KR K B SHAHROZ APKA HUA 😜";
+      }
+    }
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
