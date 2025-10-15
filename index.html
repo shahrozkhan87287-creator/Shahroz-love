@@ -3,101 +3,75 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ahmad’s Extremely Questionable Website</title>
-<meta name="description" content="A highly serious scientific webpage about Ahmad. Definitely not cursed." />
+<title>Roast Ahmad 🔥</title>
+<meta name="description" content="A lovingly savage, PG-13 roast machine for Ahmad." />
 <style>
   :root{
-    --bg1:#141e30; --bg2:#243b55; --pop:#ff3ea5; --pop2:#00e5ff; --ok:#10d38d; --warn:#ffd166;
+    --bg1:#0f0f12; --bg2:#1b1b22; --acc:#ff3e6c; --acc2:#ffcc00; --good:#12d07a;
   }
   *{box-sizing:border-box}
   html,body{height:100%;margin:0}
   body{
     font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Poppins", Arial, sans-serif;
-    color:#fff; 
-    background: linear-gradient(130deg,var(--bg1),var(--bg2));
+    color:#f8f8fb; background: radial-gradient(1200px 800px at 20% 10%, #1f1f28 0%, transparent 60%),
+                    radial-gradient(900px 900px at 80% 90%, #161621 0%, transparent 60%),
+                    linear-gradient(135deg,var(--bg1),var(--bg2));
     overflow-x:hidden;
   }
-  header{
-    text-align:center; padding:26px 12px 10px; position:relative;
-  }
-  h1{
-    margin:0; font-size: clamp(28px,6vw,56px); letter-spacing:.5px;
-    text-shadow: 0 10px 30px rgba(0,0,0,.6);
-  }
-  .subtitle{opacity:.9; margin-top:6px}
-  .blink { animation: blink 1.4s infinite }
-  @keyframes blink { 0%,60%{opacity:1} 61%,100%{opacity:.3} }
+  header{text-align:center;padding:28px 12px 6px}
+  h1{margin:0;font-size:clamp(28px,6vw,56px);letter-spacing:.4px}
+  .sub{opacity:.8;margin-top:6px}
 
-  .wrap{max-width:1100px;margin:16px auto;padding:0 14px 80px}
-  .grid{display:grid; gap:14px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr));}
+  .wrap{max-width:980px;margin:12px auto 90px;padding:0 14px;position:relative}
   .card{
-    background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
-    border-radius:16px; padding:16px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
-    position:relative; overflow:hidden;
+    background: rgba(255,255,255,0.06); border:1px solid #ffffff1a; border-radius:18px;
+    padding:16px; box-shadow: 0 14px 36px rgba(0,0,0,.35); position:relative; overflow:hidden;
   }
-  .card h2{margin:0 0 10px; font-size: 20px}
-  .btn{
-    appearance:none; border:none; cursor:pointer;
-    background: linear-gradient(135deg,var(--pop),#ff6bd2);
-    color:#fff; padding:12px 16px; border-radius:12px; font-weight:700;
-    box-shadow: 0 8px 18px rgba(0,0,0,.25); transition: transform .12s ease;
-  }
-  .btn:hover{ transform: translateY(-2px) }
-  .btn-alt{ background: linear-gradient(135deg,var(--pop2),#52ffe7); color:#112; }
-  .row{display:flex;flex-wrap:wrap;gap:10px}
-  .meter{
-    height:16px; background:#222; border-radius:999px; overflow:hidden; border:1px solid #0006; margin:8px 0 4px;
-  }
-  .bar{height:100%; width:10%; background:linear-gradient(90deg,#ffd166,#ff3ea5); transition: width .25s ease}
-  .tiny{font-size:12px; opacity:.8}
-  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
-  .note{opacity:.8; font-size:13px}
-
-  /* floating emojis */
-  .floaty{
-    position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:0;
-  }
-  .emoji{
-    position:absolute; font-size:24px; opacity:.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,.4));
-    animation: up 7s linear forwards;
-  }
-  @keyframes up { from{ transform: translateY(100vh) } to{ transform: translateY(-20vh); opacity:0 } }
-
-  /* popups */
-  .popup{
-    position: fixed; top: 80px; left: 80px; width: 280px; background:#101722; border:1px solid #ffffff22;
-    border-radius:12px; box-shadow: 0 20px 50px rgba(0,0,0,.5); z-index:5; user-select:none;
-  }
-  .pop-head{
-    padding:10px 12px; background:#172235; border-bottom:1px solid #ffffff11; display:flex; justify-content:space-between; align-items:center;
-    cursor:move;
-  }
-  .pop-head .title{font-weight:700}
-  .x{background:#ff5f56; border:none; width:22px; height:22px; border-radius:50%; cursor:pointer}
-  .pop-body{padding:12px; font-size:14px}
-  .ok{color:var(--ok)} .warn{color:var(--warn)} .center{text-align:center}
-
-  /* footer */
-  footer{
-    position:fixed; left:0; bottom:0; width:100%; padding:10px 12px; 
-    background: linear-gradient(90deg,transparent,#ffffff10,transparent); backdrop-filter: blur(6px);
-    border-top:1px solid #ffffff14; font-size:12px; display:flex; justify-content:center; gap:18px;
-  }
-  .switch{display:inline-flex;align-items:center;gap:8px}
-  input[type=range]{width:100%}
-
-  /* shake for Do Not Press */
-  .shake { animation: shake .45s cubic-bezier(.36,.07,.19,.97) both }
-  @keyframes shake {
-    10%, 90% { transform: translate3d(-1px, 0, 0); }
-    20%, 80% { transform: translate3d(2px, 0, 0); }
-    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-    40%, 60% { transform: translate3d(4px, 0, 0); }
-  }
-
+  .grid{display:grid;gap:14px;grid-template-columns: repeat(auto-fit,minmax(260px,1fr))}
   .badge{
-    position:absolute; right:-34px; top:12px; transform: rotate(20deg);
-    background: #00e5ff; color:#112; padding:6px 18px; font-weight:900; box-shadow:0 12px 30px rgba(0,0,0,.35);
+    position:absolute; right:-36px; top:12px; transform:rotate(20deg);
+    background:#ffcc00; color:#222; padding:6px 18px; font-weight:900; box-shadow:0 12px 28px rgba(0,0,0,.35)
+  }
+
+  .btn{
+    appearance:none;border:none;cursor:pointer;
+    background: linear-gradient(135deg,#ff3e6c,#ff6a95); color:#fff;
+    padding:12px 16px;border-radius:12px;font-weight:800;
+    box-shadow:0 10px 24px rgba(0,0,0,.25);transition:transform .12s ease
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-alt{background:linear-gradient(135deg,#2dd4bf,#84ffc9);color:#102}
+  .row{display:flex;flex-wrap:wrap;gap:10px}
+
+  .out{
+    min-height:120px; padding:12px; border-radius:12px; background:#10131a; border:1px solid #ffffff14;
+    font-size:18px; line-height:1.5; margin-top:10px
+  }
+  .tiny{font-size:12px;opacity:.75}
+  .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+
+  .meter{height:16px;background:#0e0f13;border-radius:999px;overflow:hidden;border:1px solid #0006;margin:8px 0 4px}
+  .bar{height:100%;width:20%;background:linear-gradient(90deg,#ffd166,#ff3e6c);transition:width .25s ease}
+
+  /* floating fire & popcorn */
+  .floaty{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .emoji{position:absolute;font-size:20px;opacity:.9;filter:drop-shadow(0 6px 12px rgba(0,0,0,.45));animation:up 7s linear forwards}
+  @keyframes up{from{transform:translateY(100vh)}to{transform:translateY(-20vh);opacity:0}}
+
+  /* dramatic shake */
+  .shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97) both}
+  @keyframes shake{
+    10%,90%{transform:translate3d(-1px,0,0)}
+    20%,80%{transform:translate3d(2px,0,0)}
+    30%,50%,70%{transform:translate3d(-4px,0,0)}
+    40%,60%{transform:translate3d(4px,0,0)}
+  }
+
+  footer{
+    position:fixed;left:0;right:0;bottom:0;padding:10px 14px;
+    background:linear-gradient(90deg,transparent,#ffffff10,transparent);
+    border-top:1px solid #ffffff18;backdrop-filter:blur(6px);
+    display:flex;justify-content:center;gap:16px;font-size:12px
   }
 </style>
 </head>
@@ -105,223 +79,159 @@
   <div class="floaty" id="floaty" aria-hidden="true"></div>
 
   <header>
-    <h1>Welcome to <span class="blink">AHMAD</span> Zone™</h1>
-    <div class="subtitle">This website is <strong>100% scientifically verified</strong> to be weird.</div>
+    <h1>Roast Ahmad 🔥</h1>
+    <div class="sub">100% friendly fire. PG-13. Hydrate after reading.</div>
   </header>
 
   <div class="wrap">
-    <div class="grid">
-      <!-- Ahmad-O-Meter -->
-      <section class="card" id="meterCard">
-        <div class="badge">Certified Weird</div>
-        <h2>Ahmad-O-Meter</h2>
-        <div class="meter"><div class="bar" id="meterBar"></div></div>
-        <div class="row">
-          <button class="btn" id="btnMore">Increase Weirdness</button>
-          <button class="btn btn-alt" id="btnLess">Decrease (lol ok)</button>
-        </div>
-        <div class="tiny mono" id="meterVal">Current Level: 10%</div>
-        <p class="note">Side effects may include spontaneous giggles, llamas, and rotating sandwiches.</p>
-      </section>
+    <section class="card">
+      <div class="badge">Certified Roast</div>
+      <h2>Roast Console</h2>
+      <div class="row" style="margin-bottom:6px">
+        <button class="btn" id="btnRoast">Roast Him</button>
+        <button class="btn btn-alt" id="btnCompliment">Balance with Compliment</button>
+        <button class="btn" style="background:linear-gradient(135deg,#ff1744,#ff5252)" id="btnDont">Do Not Click</button>
+      </div>
 
-      <!-- Do Not Press -->
-      <section class="card" id="dangerCard">
-        <h2>Big Red Totally Normal Button</h2>
-        <p>Instructions: <strong>Do Not Press</strong>. (For legal reasons, this is a joke.)</p>
-        <div class="row">
-          <button class="btn" style="background:linear-gradient(135deg,#ff1744,#ff5252)" id="btnDoNot">DO NOT PRESS</button>
-          <button class="btn btn-alt" id="btnApology">Apologize To The Button</button>
-        </div>
-        <div class="tiny mono" id="doNotLog"></div>
-      </section>
+      <div class="meter"><div class="bar" id="bar"></div></div>
+      <div class="tiny mono" id="level">Spice Level: 20%</div>
 
-      <!-- Popups -->
+      <div class="out mono" id="out">Press “Roast Him” to begin the damage. 🍿</div>
+      <div class="tiny">Tip: If he cries, press “Balance with Compliment” then immediately roast again for emotional cardio.</div>
+    </section>
+
+    <div class="grid" style="margin-top:14px">
       <section class="card">
-        <h2>Summon Suspicious Popups</h2>
-        <p>100% trustworthy windows about Ahmad’s greatness. Drag them around. Probably safe.</p>
+        <h2>Instant Excuse Generator</h2>
+        <p class="tiny">For when Ahmad gets roasted and says “that’s not me.”</p>
         <div class="row">
-          <button class="btn" id="btnPopup">Open 1 Popup</button>
-          <button class="btn btn-alt" id="btnManyPopups">Open MANY 😬</button>
+          <button class="btn" id="btnExcuse">Generate Excuse</button>
         </div>
-        <p class="tiny">Tip: Click the colored dot to close a popup.</p>
+        <div class="out mono" id="excuseOut">…waiting for denial protocol…</div>
       </section>
 
-      <!-- Llamas & Random -->
       <section class="card">
-        <h2>Emergency Llama Dispenser</h2>
-        <p>When life is hard, deploy llamas.</p>
+        <h2>Apology (Fake)</h2>
+        <p class="tiny">Click to “apologize” (this does nothing).</p>
         <div class="row">
-          <button class="btn" id="btnLlama">Summon Llama 🦙</button>
-          <button class="btn btn-alt" id="btnChicken">Random Animal?</button>
+          <button class="btn btn-alt" id="btnSorry">I’m Sorry (lol)</button>
         </div>
-        <div id="zoo" style="margin-top:8px;min-height:32px;font-size:28px"></div>
-      </section>
-
-      <!-- Chaos slider -->
-      <section class="card">
-        <h2>Chaos Level</h2>
-        <p>Slide to adjust how bonkers the page feels.</p>
-        <input type="range" id="chaos" min="0" max="100" value="25" />
-        <div class="tiny mono" id="chaosVal">Chaos: 25%</div>
-      </section>
-
-      <!-- Seriousness Detector -->
-      <section class="card">
-        <h2>Seriousness Detector</h2>
-        <p>Place finger on mouse. We will detect if you are serious.</p>
-        <div class="row">
-          <button class="btn" id="btnScan">Scan Me</button>
-        </div>
-        <div id="scanResult" class="tiny mono"></div>
+        <div class="out mono" id="sorryOut">Status: Not sorry.</div>
       </section>
     </div>
   </div>
 
   <footer>
-    <label class="switch"><input type="checkbox" id="weirdMode" /> <span>Ultra-Weird Mode</span></label>
+    <span>Made with love + flames for Ahmad.</span>
     <span>•</span>
-    <span class="tiny">© Ahmad Corporation of Chaos</span>
+    <span class="tiny">Roasts are jokes. Be nice IRL.</span>
   </footer>
 
-  <script>
-    // Utility
-    const $ = sel => document.querySelector(sel);
-    const rand = (a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+<script>
+const $ = s => document.querySelector(s);
+const rand = (a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 
-    // Floating emojis
-    const floaty = $('#floaty');
-    const floaters = ['🤣','🦙','🫠','🧠','🥸','🍕','🪩','🐔','🫡','😵‍💫','🥳','🦖'];
-    function spawnEmoji(){
-      const e=document.createElement('div');
-      e.className='emoji';
-      e.textContent=floaters[rand(0,floaters.length-1)];
-      e.style.left=rand(2,95)+'vw';
-      e.style.animationDuration=(5+Math.random()*4)+'s';
-      e.style.fontSize=(20+Math.random()*26)+'px';
-      floaty.appendChild(e);
-      setTimeout(()=>e.remove(),9000);
-    }
-    let emojiTimer=setInterval(spawnEmoji, 900);
+const roasts = [
+  "Ahmad’s Wi-Fi has more bars than his jokes.",
+  "If procrastination were a sport, Ahmad would still miss the deadline.",
+  "Ahmad’s playlists are just YouTube ads with commitment issues.",
+  "He types like he’s trying to scare the keyboard into working.",
+  "Ahmad updates his status more than his skills.",
+  "He’s the human version of ‘low battery – continue anyway’.",
+  "Even his mirror asked for privacy.",
+  "If confidence is key, Ahmad lost his keychain.",
+  "Ahmad’s cooking is so experimental it needs ethics approval.",
+  "He says ‘trust the process’; the process files a complaint.",
+  "Ahmad jogs my memory—by running from responsibilities.",
+  "His fashion sense is ‘laundry day: extended cut’.",
+  "Even autocorrect refuses to fix his life choices.",
+  "Ahmad’s alarm clock hit snooze on him.",
+  "He treats deadlines like speed limits: casual suggestions."
+];
 
-    // Ahmad-O-Meter
-    const bar = $('#meterBar');
-    const meterVal = $('#meterVal');
-    let level = 10;
-    function renderMeter(){
-      bar.style.width = level+'%';
-      meterVal.textContent = 'Current Level: '+level+'%';
-    }
-    renderMeter();
-    $('#btnMore').onclick = ()=>{ level = Math.min(100, level+rand(7,18)); renderMeter(); popToast('Weirdness +'+rand(7,18)+'%');};
-    $('#btnLess').onclick = ()=>{ level = Math.max(0, level-rand(5,12)); renderMeter(); popToast('Weirdness reduced (temporarily)');};
+const compliments = [
+  "Low-key hilarious (don’t let it get to your head).",
+  "Drip appears every third Thursday—rare, but iconic.",
+  "Braincell count doubled today. Huge W.",
+  "Honestly, vibes are immaculate for once.",
+  "Caught you being kind. Keep that bug.",
+  "Main character energy unlocked (DLC pending)."
+];
 
-    // Do Not Press
-    const log = $('#doNotLog');
-    $('#btnDoNot').onclick = ()=>{
-      document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
-      chaosBurst();
-      log.textContent = 'You pressed it. The button is disappointed.';
-      // random extra
-      if(Math.random()<0.5) openPopup('ALERT', 'You have angered the Ancient Sandwich. 🥪', 'warn');
-      else spawnEmoji();
-    };
-    $('#btnApology').onclick = ()=>{
-      log.textContent = 'Apology accepted. The button still judges you.';
-      popToast('Forgiveness achieved ✅')
-    };
+const excuses = [
+  "That wasn’t me, that was my evil twin—also named Ahmad.",
+  "Lag. Terrible lag. In real life.",
+  "It’s a social experiment. You wouldn’t get it.",
+  "My barber took my confidence with the fade.",
+  "Astrologically, I’m not responsible today.",
+  "Touching grass patch scheduled for Q4.",
+  "The group chat framed me.",
+  "I’m in my mysterious era (unproductive)."
+];
 
-    // Popups
-    function openPopup(title, msg, tone='ok'){
-      const p=document.createElement('div'); p.className='popup';
-      p.style.top = rand(60, window.innerHeight-260)+'px';
-      p.style.left= rand(40, window.innerWidth-320)+'px';
-      p.innerHTML = `
-        <div class="pop-head"><span class="title">${title}</span><button class="x" aria-label="Close"></button></div>
-        <div class="pop-body ${tone}">
-          <p>${msg}</p>
-          <p class="tiny mono">window.id = ${Math.random().toString(16).slice(2)}</p>
-        </div>`;
-      document.body.appendChild(p);
-      p.querySelector('.x').onclick=()=>p.remove();
+const out = $('#out'), bar = $('#bar'), levelTxt = $('#level');
+let spice = 20;
+function setSpice(n){ spice = Math.max(0, Math.min(100, n)); bar.style.width = spice+'%'; levelTxt.textContent = 'Spice Level: '+spice+'%'; }
+setSpice(spice);
 
-      // drag
-      const head=p.querySelector('.pop-head');
-      let dx=0,dy=0,drag=false;
-      head.addEventListener('mousedown',e=>{drag=true; dx=e.clientX-p.offsetLeft; dy=e.clientY-p.offsetTop;});
-      window.addEventListener('mousemove',e=>{ if(!drag) return; p.style.left=(e.clientX-dx)+'px'; p.style.top=(e.clientY-dy)+'px';});
-      window.addEventListener('mouseup',()=>drag=false);
-    }
-    $('#btnPopup').onclick = ()=> openPopup('Important Science', 'After deep research, Ahmad is 87% noodles.', 'ok');
-    $('#btnManyPopups').onclick = ()=>{
-      const msgs = ['Installing more Ahmad…','Optimizing laughs…','Calibrating llamas…','Rebooting vibes…','Downloading sandwich driver…'];
-      for(let i=0;i<rand(3,7);i++) openPopup('System', msgs[rand(0,msgs.length-1)], 'warn');
-    };
+function pop(text){
+  const t=document.createElement('div');
+  t.textContent=text;
+  Object.assign(t.style,{
+    position:'fixed',left:'50%',top:'18px',transform:'translateX(-50%)',
+    background:'rgba(0,0,0,.75)',color:'#fff',padding:'10px 14px',borderRadius:'12px',
+    zIndex:9,boxShadow:'0 10px 30px rgba(0,0,0,.4)'
+  });
+  document.body.appendChild(t);
+  setTimeout(()=>{ t.style.transition='opacity .4s'; t.style.opacity='0'; },1200);
+  setTimeout(()=>t.remove(),1700);
+}
 
-    // Llamas & animals
-    const zoo = $('#zoo');
-    $('#btnLlama').onclick = ()=> { zoo.textContent += ' 🦙'; popToast('Llama deployed'); };
-    $('#btnChicken').onclick = ()=> {
-      const animals = ['🐔','🦖','🦄','🐙','🦚','🦥','🦔','🦘','🦆'];
-      zoo.textContent += ' '+animals[rand(0,animals.length-1)];
-    };
+// floating emojis (fire + popcorn)
+const floaty = $('#floaty');
+const floaters = ['🔥','🍿','🔥','🥤','🔥','🧯','🔥','🧃'];
+function spawnEmoji(){
+  const e=document.createElement('div');
+  e.className='emoji';
+  e.textContent=floaters[rand(0,floaters.length-1)];
+  e.style.left=rand(2,95)+'vw';
+  e.style.animationDuration=(5+Math.random()*4)+'s';
+  e.style.fontSize=(20+Math.random()*26)+'px';
+  floaty.appendChild(e);
+  setTimeout(()=>e.remove(),9000);
+}
+let timer=setInterval(spawnEmoji, 800);
 
-    // Chaos slider
-    const chaos = $('#chaos'), chaosVal=$('#chaosVal');
-    chaos.oninput = ()=>{
-      chaosVal.textContent = 'Chaos: '+chaos.value+'%';
-      clearInterval(emojiTimer);
-      const base = 1200 - (chaos.value*8); // faster spawn with more chaos
-      emojiTimer = setInterval(spawnEmoji, Math.max(200, base));
-      document.body.style.filter = chaos.value>75 ? 'hue-rotate(25deg) saturate(1.3)' : 'none';
-    };
+$('#btnRoast').onclick = ()=>{
+  document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
+  const spiceBonus = Math.floor(spice/20);
+  const line = roasts[rand(0,roasts.length-1)];
+  out.textContent = "🔥 " + line + (spiceBonus ? " (Spice x"+(1+spiceBonus/10)+")" : "");
+  setSpice(spice + rand(5,15));
+  spawnEmoji(); spawnEmoji();
+};
 
-    // Seriousness detector
-    $('#btnScan').onclick = ()=>{
-      const verdicts = [
-        'Seriousness: 0%. Pure Ahmad.',
-        'Finding: Laugh energy detected at 113%.',
-        'Conclusion: Not serious. Should eat sandwich.',
-        'Status: Certified Goofy™.',
-        'WARNING: Excessive coolness. Apply shades 🕶️.'
-      ];
-      $('#scanResult').textContent = verdicts[rand(0,verdicts.length-1)];
-      popToast('Scan complete!');
-    };
+$('#btnCompliment').onclick = ()=>{
+  out.textContent = "✨ " + compliments[rand(0,compliments.length-1)];
+  setSpice(spice - rand(8,14));
+  pop('Humanity restored (briefly)');
+};
 
-    // Ultra-Weird Mode
-    $('#weirdMode').addEventListener('change', e=>{
-      if(e.target.checked){
-        popToast('Ultra-Weird Mode: ON');
-        chaos.value = 90; chaos.oninput();
-        for(let i=0;i<5;i++) spawnEmoji();
-        openPopup('Achievement', 'You unlocked Ultra-Weird Mode 🌈', 'ok');
-      } else {
-        popToast('Ultra-Weird Mode: OFF');
-        chaos.value = 25; chaos.oninput();
-      }
-    });
+$('#btnDont').onclick = ()=>{
+  document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
+  out.textContent = "🚨 You clicked the forbidden button. Roast shields offline.";
+  setSpice(spice + rand(12,20));
+  for(let i=0;i<5;i++) spawnEmoji();
+};
 
-    // Tiny toast
-    function popToast(text){
-      const t=document.createElement('div');
-      t.textContent=text;
-      Object.assign(t.style,{
-        position:'fixed', left:'50%', top:'18px', transform:'translateX(-50%)',
-        background:'rgba(0,0,0,.7)', color:'#fff', padding:'10px 14px', borderRadius:'12px',
-        zIndex:9, boxShadow:'0 10px 30px rgba(0,0,0,.4)'
-      });
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.transition='opacity .4s'; t.style.opacity='0'; },1200);
-      setTimeout(()=>t.remove(),1700);
-    }
+$('#btnExcuse').onclick = ()=>{
+  $('#excuseOut').textContent = "🧠 " + excuses[rand(0,excuses.length-1)];
+};
 
-    // Chaos burst (for big red button)
-    function chaosBurst(){
-      for(let i=0;i<10;i++) spawnEmoji();
-      document.body.style.transition='filter .2s';
-      document.body.style.filter='hue-rotate(45deg) saturate(1.6)';
-      setTimeout(()=>document.body.style.filter='none',400);
-    }
-  </script>
+$('#btnSorry').onclick = ()=>{
+  $('#sorryOut').textContent = "✅ Apology submitted. Server responded: 418 I’m a teapot.";
+  pop('Apology rejected (with love)');
+};
+</script>
 </body>
 </html>
