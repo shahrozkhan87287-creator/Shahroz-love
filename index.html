@@ -1,272 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>I Love You ❤️</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ahmad’s Extremely Questionable Website</title>
+<meta name="description" content="A highly serious scientific webpage about Ahmad. Definitely not cursed." />
+<style>
+  :root{
+    --bg1:#141e30; --bg2:#243b55; --pop:#ff3ea5; --pop2:#00e5ff; --ok:#10d38d; --warn:#ffd166;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Poppins", Arial, sans-serif;
+    color:#fff; 
+    background: linear-gradient(130deg,var(--bg1),var(--bg2));
+    overflow-x:hidden;
+  }
+  header{
+    text-align:center; padding:26px 12px 10px; position:relative;
+  }
+  h1{
+    margin:0; font-size: clamp(28px,6vw,56px); letter-spacing:.5px;
+    text-shadow: 0 10px 30px rgba(0,0,0,.6);
+  }
+  .subtitle{opacity:.9; margin-top:6px}
+  .blink { animation: blink 1.4s infinite }
+  @keyframes blink { 0%,60%{opacity:1} 61%,100%{opacity:.3} }
 
-  <!-- Social cards -->
-  <meta name="description" content="A tiny romantic page with a cute bear, floating hearts, and one important question." />
-  <meta property="og:title" content="I Love You ❤️" />
-  <meta property="og:description" content="Tap yes… and watch the magic ✨" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%23ffd6e7'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Verdana' font-size='72' fill='%23b30059'>I Love You ❤️</text></svg>" />
+  .wrap{max-width:1100px;margin:16px auto;padding:0 14px 80px}
+  .grid{display:grid; gap:14px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr));}
+  .card{
+    background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px; padding:16px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    position:relative; overflow:hidden;
+  }
+  .card h2{margin:0 0 10px; font-size: 20px}
+  .btn{
+    appearance:none; border:none; cursor:pointer;
+    background: linear-gradient(135deg,var(--pop),#ff6bd2);
+    color:#fff; padding:12px 16px; border-radius:12px; font-weight:700;
+    box-shadow: 0 8px 18px rgba(0,0,0,.25); transition: transform .12s ease;
+  }
+  .btn:hover{ transform: translateY(-2px) }
+  .btn-alt{ background: linear-gradient(135deg,var(--pop2),#52ffe7); color:#112; }
+  .row{display:flex;flex-wrap:wrap;gap:10px}
+  .meter{
+    height:16px; background:#222; border-radius:999px; overflow:hidden; border:1px solid #0006; margin:8px 0 4px;
+  }
+  .bar{height:100%; width:10%; background:linear-gradient(90deg,#ffd166,#ff3ea5); transition: width .25s ease}
+  .tiny{font-size:12px; opacity:.8}
+  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+  .note{opacity:.8; font-size:13px}
 
-  <!-- Tiny inline “favicon” -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E">
+  /* floating emojis */
+  .floaty{
+    position:fixed; left:0; top:0; width:100%; height:100%; pointer-events:none; z-index:0;
+  }
+  .emoji{
+    position:absolute; font-size:24px; opacity:.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,.4));
+    animation: up 7s linear forwards;
+  }
+  @keyframes up { from{ transform: translateY(100vh) } to{ transform: translateY(-20vh); opacity:0 } }
 
-  <style>
-    :root{
-      --pink:#ff6b9a; --rose:#ff4d79; --deep:#9a0f4c;
-      --bg1:#ffe6f2; --bg2:#ffd6e7; --bg3:#ffcce0; --card:#ffffffc2;
-      --shadow:0 20px 50px rgba(0,0,0,.18);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0}
-    body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Poppins", Arial, sans-serif;
-      color: var(--deep); display:flex; align-items:center; justify-content:center;
-      overflow:hidden; background: radial-gradient(1200px 800px at 20% 10%, #fff0f6 0%, transparent 60%),
-                              radial-gradient(900px 900px at 80% 90%, #ffe3ee 0%, transparent 60%),
-                              linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
-      background-size: 200% 200%;
-      animation: bgmove 16s ease-in-out infinite;
-    }
-    @keyframes bgmove{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-    @media (prefers-reduced-motion: reduce){
-      body{animation:none}
-      .floaty,.bounce,*{animation: none!important; transition:none!important}
-    }
+  /* popups */
+  .popup{
+    position: fixed; top: 80px; left: 80px; width: 280px; background:#101722; border:1px solid #ffffff22;
+    border-radius:12px; box-shadow: 0 20px 50px rgba(0,0,0,.5); z-index:5; user-select:none;
+  }
+  .pop-head{
+    padding:10px 12px; background:#172235; border-bottom:1px solid #ffffff11; display:flex; justify-content:space-between; align-items:center;
+    cursor:move;
+  }
+  .pop-head .title{font-weight:700}
+  .x{background:#ff5f56; border:none; width:22px; height:22px; border-radius:50%; cursor:pointer}
+  .pop-body{padding:12px; font-size:14px}
+  .ok{color:var(--ok)} .warn{color:var(--warn)} .center{text-align:center}
 
-    /* hearts layer */
-    .hearts{position:fixed; inset:0; pointer-events:none; z-index:0}
+  /* footer */
+  footer{
+    position:fixed; left:0; bottom:0; width:100%; padding:10px 12px; 
+    background: linear-gradient(90deg,transparent,#ffffff10,transparent); backdrop-filter: blur(6px);
+    border-top:1px solid #ffffff14; font-size:12px; display:flex; justify-content:center; gap:18px;
+  }
+  .switch{display:inline-flex;align-items:center;gap:8px}
+  input[type=range]{width:100%}
 
-    .card{
-      position:relative; z-index:1; width:min(720px,92vw);
-      padding:28px 22px 30px; border-radius:24px;
-      background: var(--card); backdrop-filter: blur(8px);
-      box-shadow: var(--shadow); text-align:center; border:1px solid rgba(255,255,255,.7);
-    }
-    h1{ margin:6px 0 0; font-size: clamp(28px, 6vw, 44px); color: var(--deep);
-        text-shadow: 0 2px 14px rgba(255,105,180,.30); }
-    .sunshine{ font-size: clamp(18px, 3.6vw, 22px); color:#ff3e74; margin:6px 0 14px; font-weight:700 }
-    .bear{ font-size: clamp(76px, 16vw, 120px); margin: 10px 0 4px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.18)); }
-    .bounce{ animation: bounce 2.2s ease-in-out infinite }
-    @keyframes bounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  /* shake for Do Not Press */
+  .shake { animation: shake .45s cubic-bezier(.36,.07,.19,.97) both }
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
 
-    h2{ font-weight:650; margin:10px 0 18px; font-size: clamp(18px, 4.2vw, 26px) }
-
-    .buttons{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:8px }
-    button{
-      appearance:none; border:none; padding:14px 22px; border-radius:14px;
-      font-size: clamp(16px, 4vw, 18px); cursor:pointer; user-select:none;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
-      box-shadow: 0 10px 24px rgba(0,0,0,.12);
-    }
-    .btn-yes{ background: linear-gradient(135deg,#ff4d79,#ff6b9a); color:#fff }
-    .btn-yes:hover{ transform: translateY(-2px) scale(1.03) }
-    .btn-no{ background:#fff; color:var(--deep); border:1px solid rgba(0,0,0,.06); position:relative }
-    .row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px }
-
-    #message{ margin-top:22px; min-height:2.8em; font-size:clamp(20px,5vw,30px); font-weight:800; letter-spacing:.2px }
-    .glow{ text-shadow: 0 0 20px rgba(255,105,180,.45) }
-
-    /* top-right controls */
-    .controls{
-      position: fixed; right: 16px; top: 14px; z-index: 3; display:flex; gap:10px;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,.18));
-    }
-    .ctrl{ background:#fff; border:1px solid rgba(0,0,0,.06); padding:10px 12px; border-radius:12px; cursor:pointer }
-    .ctrl:active{ transform: scale(.98) }
-
-    /* confetti canvas */
-    #confetti{ position:fixed; inset:0; pointer-events:none; z-index:2 }
-
-    .note{ margin-top:6px; font-size:12px; opacity:.7 }
-
-    /* keep No button inside the card */
-    .btn-wrap{ position: relative }
-  </style>
+  .badge{
+    position:absolute; right:-34px; top:12px; transform: rotate(20deg);
+    background: #00e5ff; color:#112; padding:6px 18px; font-weight:900; box-shadow:0 12px 30px rgba(0,0,0,.35);
+  }
+</style>
 </head>
 <body>
-  <!-- Controls -->
-  <div class="controls" aria-label="Page controls">
-    <button class="ctrl" id="musicBtn" aria-pressed="false" title="Play music">🎵 Play</button>
-    <button class="ctrl" id="shareBtn" title="Share this page">🔗 Share</button>
-  </div>
+  <div class="floaty" id="floaty" aria-hidden="true"></div>
 
-  <!-- Confetti -->
-  <canvas id="confetti" aria-hidden="true"></canvas>
+  <header>
+    <h1>Welcome to <span class="blink">AHMAD</span> Zone™</h1>
+    <div class="subtitle">This website is <strong>100% scientifically verified</strong> to be weird.</div>
+  </header>
 
-  <!-- Floating hearts -->
-  <div class="hearts" id="hearts" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="grid">
+      <!-- Ahmad-O-Meter -->
+      <section class="card" id="meterCard">
+        <div class="badge">Certified Weird</div>
+        <h2>Ahmad-O-Meter</h2>
+        <div class="meter"><div class="bar" id="meterBar"></div></div>
+        <div class="row">
+          <button class="btn" id="btnMore">Increase Weirdness</button>
+          <button class="btn btn-alt" id="btnLess">Decrease (lol ok)</button>
+        </div>
+        <div class="tiny mono" id="meterVal">Current Level: 10%</div>
+        <p class="note">Side effects may include spontaneous giggles, llamas, and rotating sandwiches.</p>
+      </section>
 
-  <!-- Main card -->
-  <div class="card" id="card">
-    <h1 class="glow">I Love You ❤️</h1>
-    <div class="sunshine">My Sunshine 😊</div>
-    <div class="bear bounce" aria-hidden="true">🧸</div>
+      <!-- Do Not Press -->
+      <section class="card" id="dangerCard">
+        <h2>Big Red Totally Normal Button</h2>
+        <p>Instructions: <strong>Do Not Press</strong>. (For legal reasons, this is a joke.)</p>
+        <div class="row">
+          <button class="btn" style="background:linear-gradient(135deg,#ff1744,#ff5252)" id="btnDoNot">DO NOT PRESS</button>
+          <button class="btn btn-alt" id="btnApology">Apologize To The Button</button>
+        </div>
+        <div class="tiny mono" id="doNotLog"></div>
+      </section>
 
-    <h2>Do you love <strong>Shahroz</strong>?</h2>
+      <!-- Popups -->
+      <section class="card">
+        <h2>Summon Suspicious Popups</h2>
+        <p>100% trustworthy windows about Ahmad’s greatness. Drag them around. Probably safe.</p>
+        <div class="row">
+          <button class="btn" id="btnPopup">Open 1 Popup</button>
+          <button class="btn btn-alt" id="btnManyPopups">Open MANY 😬</button>
+        </div>
+        <p class="tiny">Tip: Click the colored dot to close a popup.</p>
+      </section>
 
-    <div class="buttons">
-      <button class="btn-yes" id="yesBtn" aria-label="Yes, I love Shahroz">Yes 💖</button>
-      <span class="btn-wrap">
-        <button class="btn-no" id="noBtn" aria-label="No">No 🙈</button>
-      </span>
+      <!-- Llamas & Random -->
+      <section class="card">
+        <h2>Emergency Llama Dispenser</h2>
+        <p>When life is hard, deploy llamas.</p>
+        <div class="row">
+          <button class="btn" id="btnLlama">Summon Llama 🦙</button>
+          <button class="btn btn-alt" id="btnChicken">Random Animal?</button>
+        </div>
+        <div id="zoo" style="margin-top:8px;min-height:32px;font-size:28px"></div>
+      </section>
+
+      <!-- Chaos slider -->
+      <section class="card">
+        <h2>Chaos Level</h2>
+        <p>Slide to adjust how bonkers the page feels.</p>
+        <input type="range" id="chaos" min="0" max="100" value="25" />
+        <div class="tiny mono" id="chaosVal">Chaos: 25%</div>
+      </section>
+
+      <!-- Seriousness Detector -->
+      <section class="card">
+        <h2>Seriousness Detector</h2>
+        <p>Place finger on mouse. We will detect if you are serious.</p>
+        <div class="row">
+          <button class="btn" id="btnScan">Scan Me</button>
+        </div>
+        <div id="scanResult" class="tiny mono"></div>
+      </section>
     </div>
-
-    <div id="message" role="status" aria-live="polite"></div>
-    <div class="note">Tap “Yes” for a surprise ✨</div>
   </div>
 
-  <!-- Soft music (no autoplay; user must tap Play) -->
-  <audio id="bgm" preload="auto" loop>
-    <!-- royalty-free short loop suggestion: replace with your own mp3/ogg if you want -->
-    <!-- You can upload an mp3 to the repo and reference it here, e.g. src="soft-loop.mp3" -->
-  </audio>
+  <footer>
+    <label class="switch"><input type="checkbox" id="weirdMode" /> <span>Ultra-Weird Mode</span></label>
+    <span>•</span>
+    <span class="tiny">© Ahmad Corporation of Chaos</span>
+  </footer>
 
   <script>
-    // ===== Floating hearts =====
-    const heartsWrap = document.getElementById('hearts');
-    let reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function spawnHeart(){
-      if(reduceMotion) return;
-      const d = document.createElement('div');
-      d.textContent = ['💖','💕','💗'][Math.floor(Math.random()*3)];
-      Object.assign(d.style,{
-        position:'absolute',
-        left: Math.random()*100+'vw',
-        bottom: '-10vh',
-        fontSize: (18+Math.random()*28)+'px',
-        opacity:.8,
-        transform:'translateY(0)',
-        transition:'transform 7s linear, opacity 7s linear'
+    // Utility
+    const $ = sel => document.querySelector(sel);
+    const rand = (a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+
+    // Floating emojis
+    const floaty = $('#floaty');
+    const floaters = ['🤣','🦙','🫠','🧠','🥸','🍕','🪩','🐔','🫡','😵‍💫','🥳','🦖'];
+    function spawnEmoji(){
+      const e=document.createElement('div');
+      e.className='emoji';
+      e.textContent=floaters[rand(0,floaters.length-1)];
+      e.style.left=rand(2,95)+'vw';
+      e.style.animationDuration=(5+Math.random()*4)+'s';
+      e.style.fontSize=(20+Math.random()*26)+'px';
+      floaty.appendChild(e);
+      setTimeout(()=>e.remove(),9000);
+    }
+    let emojiTimer=setInterval(spawnEmoji, 900);
+
+    // Ahmad-O-Meter
+    const bar = $('#meterBar');
+    const meterVal = $('#meterVal');
+    let level = 10;
+    function renderMeter(){
+      bar.style.width = level+'%';
+      meterVal.textContent = 'Current Level: '+level+'%';
+    }
+    renderMeter();
+    $('#btnMore').onclick = ()=>{ level = Math.min(100, level+rand(7,18)); renderMeter(); popToast('Weirdness +'+rand(7,18)+'%');};
+    $('#btnLess').onclick = ()=>{ level = Math.max(0, level-rand(5,12)); renderMeter(); popToast('Weirdness reduced (temporarily)');};
+
+    // Do Not Press
+    const log = $('#doNotLog');
+    $('#btnDoNot').onclick = ()=>{
+      document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
+      chaosBurst();
+      log.textContent = 'You pressed it. The button is disappointed.';
+      // random extra
+      if(Math.random()<0.5) openPopup('ALERT', 'You have angered the Ancient Sandwich. 🥪', 'warn');
+      else spawnEmoji();
+    };
+    $('#btnApology').onclick = ()=>{
+      log.textContent = 'Apology accepted. The button still judges you.';
+      popToast('Forgiveness achieved ✅')
+    };
+
+    // Popups
+    function openPopup(title, msg, tone='ok'){
+      const p=document.createElement('div'); p.className='popup';
+      p.style.top = rand(60, window.innerHeight-260)+'px';
+      p.style.left= rand(40, window.innerWidth-320)+'px';
+      p.innerHTML = `
+        <div class="pop-head"><span class="title">${title}</span><button class="x" aria-label="Close"></button></div>
+        <div class="pop-body ${tone}">
+          <p>${msg}</p>
+          <p class="tiny mono">window.id = ${Math.random().toString(16).slice(2)}</p>
+        </div>`;
+      document.body.appendChild(p);
+      p.querySelector('.x').onclick=()=>p.remove();
+
+      // drag
+      const head=p.querySelector('.pop-head');
+      let dx=0,dy=0,drag=false;
+      head.addEventListener('mousedown',e=>{drag=true; dx=e.clientX-p.offsetLeft; dy=e.clientY-p.offsetTop;});
+      window.addEventListener('mousemove',e=>{ if(!drag) return; p.style.left=(e.clientX-dx)+'px'; p.style.top=(e.clientY-dy)+'px';});
+      window.addEventListener('mouseup',()=>drag=false);
+    }
+    $('#btnPopup').onclick = ()=> openPopup('Important Science', 'After deep research, Ahmad is 87% noodles.', 'ok');
+    $('#btnManyPopups').onclick = ()=>{
+      const msgs = ['Installing more Ahmad…','Optimizing laughs…','Calibrating llamas…','Rebooting vibes…','Downloading sandwich driver…'];
+      for(let i=0;i<rand(3,7);i++) openPopup('System', msgs[rand(0,msgs.length-1)], 'warn');
+    };
+
+    // Llamas & animals
+    const zoo = $('#zoo');
+    $('#btnLlama').onclick = ()=> { zoo.textContent += ' 🦙'; popToast('Llama deployed'); };
+    $('#btnChicken').onclick = ()=> {
+      const animals = ['🐔','🦖','🦄','🐙','🦚','🦥','🦔','🦘','🦆'];
+      zoo.textContent += ' '+animals[rand(0,animals.length-1)];
+    };
+
+    // Chaos slider
+    const chaos = $('#chaos'), chaosVal=$('#chaosVal');
+    chaos.oninput = ()=>{
+      chaosVal.textContent = 'Chaos: '+chaos.value+'%';
+      clearInterval(emojiTimer);
+      const base = 1200 - (chaos.value*8); // faster spawn with more chaos
+      emojiTimer = setInterval(spawnEmoji, Math.max(200, base));
+      document.body.style.filter = chaos.value>75 ? 'hue-rotate(25deg) saturate(1.3)' : 'none';
+    };
+
+    // Seriousness detector
+    $('#btnScan').onclick = ()=>{
+      const verdicts = [
+        'Seriousness: 0%. Pure Ahmad.',
+        'Finding: Laugh energy detected at 113%.',
+        'Conclusion: Not serious. Should eat sandwich.',
+        'Status: Certified Goofy™.',
+        'WARNING: Excessive coolness. Apply shades 🕶️.'
+      ];
+      $('#scanResult').textContent = verdicts[rand(0,verdicts.length-1)];
+      popToast('Scan complete!');
+    };
+
+    // Ultra-Weird Mode
+    $('#weirdMode').addEventListener('change', e=>{
+      if(e.target.checked){
+        popToast('Ultra-Weird Mode: ON');
+        chaos.value = 90; chaos.oninput();
+        for(let i=0;i<5;i++) spawnEmoji();
+        openPopup('Achievement', 'You unlocked Ultra-Weird Mode 🌈', 'ok');
+      } else {
+        popToast('Ultra-Weird Mode: OFF');
+        chaos.value = 25; chaos.oninput();
+      }
+    });
+
+    // Tiny toast
+    function popToast(text){
+      const t=document.createElement('div');
+      t.textContent=text;
+      Object.assign(t.style,{
+        position:'fixed', left:'50%', top:'18px', transform:'translateX(-50%)',
+        background:'rgba(0,0,0,.7)', color:'#fff', padding:'10px 14px', borderRadius:'12px',
+        zIndex:9, boxShadow:'0 10px 30px rgba(0,0,0,.4)'
       });
-      heartsWrap.appendChild(d);
-      requestAnimationFrame(()=>{
-        d.style.transform='translateY(-120vh)';
-        d.style.opacity=0;
-      });
-      setTimeout(()=>d.remove(),7000);
-    }
-    setInterval(spawnHeart, 340);
-
-    // ===== Yes / No logic =====
-    const msg   = document.getElementById('message');
-    const yesBtn= document.getElementById('yesBtn');
-    const noBtn = document.getElementById('noBtn');
-    const card  = document.getElementById('card');
-
-    // Keep No button inside card & make it dodge cursor
-    function moveNo(e){
-      const rect = noBtn.getBoundingClientRect();
-      const wrap = card.getBoundingClientRect();
-      const mx = (e.touches?.[0]?.clientX ?? e.clientX);
-      const my = (e.touches?.[0]?.clientY ?? e.clientY);
-      const cx = rect.left + rect.width/2;
-      const cy = rect.top  + rect.height/2;
-      const dist = Math.hypot(cx - mx, cy - my);
-      if(dist < 120 || e.type==='touchstart'){
-        // random offset
-        let dx = (Math.random()*2 - 1) * 220;
-        let dy = (Math.random()*2 - 1) * 160;
-
-        // proposed new position
-        const cur = getComputedStyle(noBtn).transform;
-        const m = cur !== 'none' ? new DOMMatrix(cur) : new DOMMatrix();
-        let nx = m.m41 + dx, ny = m.m42 + dy;
-
-        // clamp to card bounds so it never escapes
-        const pad = 16;
-        const minX = wrap.left - rect.left + pad - rect.width/2;
-        const maxX = wrap.right - rect.right - pad + rect.width/2;
-        const minY = wrap.top - rect.top + pad - rect.height/2;
-        const maxY = wrap.bottom - rect.bottom - pad + rect.height/2;
-        nx = Math.max(minX, Math.min(maxX, nx));
-        ny = Math.max(minY, Math.min(maxY, ny));
-
-        noBtn.style.transform = `translate(${nx}px, ${ny}px)`;
-      }
-    }
-    noBtn.addEventListener('mousemove', moveNo);
-    noBtn.addEventListener('touchstart', moveNo, {passive:true});
-
-    // ===== Confetti =====
-    const canvas = document.getElementById('confetti');
-    const ctx = canvas.getContext('2d');
-    let W=0,H=0, pieces=[];
-    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-    addEventListener('resize', resize); resize();
-
-    function burstConfetti(){
-      if(reduceMotion) return;
-      for(let i=0;i<220;i++){
-        pieces.push({
-          x: Math.random()*W,
-          y: -20 - Math.random()*H,
-          s: 4+Math.random()*6,
-          c: ['#ff6b9a','#ff4d79','#ffd1e1','#ff99bb'][Math.floor(Math.random()*4)],
-          a: Math.random()*Math.PI*2,
-          v: 1.2+Math.random()*2.4,
-          w: 0.02+Math.random()*0.06
-        });
-      }
-      let t=0;
-      const loop=()=>{
-        ctx.clearRect(0,0,W,H);
-        pieces.forEach(p=>{
-          p.y += p.v;
-          p.x += Math.sin(p.a + t*p.w);
-          t += 0.001;
-          ctx.save(); ctx.fillStyle = p.c; ctx.translate(p.x,p.y); ctx.rotate(p.a);
-          ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s); ctx.restore();
-        });
-        pieces = pieces.filter(p=>p.y < H+40);
-        if(pieces.length) requestAnimationFrame(loop);
-      };
-      loop();
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.transition='opacity .4s'; t.style.opacity='0'; },1200);
+      setTimeout(()=>t.remove(),1700);
     }
 
-    yesBtn.addEventListener('click', ()=>{
-      msg.textContent = '💞 SHAHROZ APKA HUA 💞';
-      msg.classList.add('glow');
-      yesBtn.disabled = noBtn.disabled = true;
-      burstConfetti();
-    });
-
-    noBtn.addEventListener('click', ()=>{
-      msg.textContent = '😜 NA KR K B SHAHROZ APKA HUA 😜';
-      msg.classList.add('glow');
-    });
-
-    // ===== Music toggle (user-initiated) =====
-    const musicBtn = document.getElementById('musicBtn');
-    const bgm = document.getElementById('bgm');
-    // Tip: add your own file to the repo and set: bgm.src = 'soft-loop.mp3';
-    musicBtn.addEventListener('click', async ()=>{
-      try{
-        if(!bgm.src){ alert('Tip: upload a soft MP3 (e.g. soft-loop.mp3) and set bgm.src in the code.'); return; }
-        if(bgm.paused){ await bgm.play(); musicBtn.textContent='🎵 Pause'; musicBtn.setAttribute('aria-pressed','true'); }
-        else{ bgm.pause(); musicBtn.textContent='🎵 Play'; musicBtn.setAttribute('aria-pressed','false'); }
-      }catch(e){ console.warn(e); }
-    });
-
-    // ===== Share button =====
-    const shareBtn = document.getElementById('shareBtn');
-    shareBtn.addEventListener('click', async ()=>{
-      const data = { title:'I Love You ❤️', text:'Open this… I made it for you 💖', url: location.href };
-      if(navigator.share){ try{ await navigator.share(data);}catch(e){} }
-      else{
-        navigator.clipboard?.writeText(location.href);
-        shareBtn.textContent = '✅ Copied';
-        setTimeout(()=>shareBtn.textContent='🔗 Share', 1600);
-      }
-    });
+    // Chaos burst (for big red button)
+    function chaosBurst(){
+      for(let i=0;i<10;i++) spawnEmoji();
+      document.body.style.transition='filter .2s';
+      document.body.style.filter='hue-rotate(45deg) saturate(1.6)';
+      setTimeout(()=>document.body.style.filter='none',400);
+    }
   </script>
 </body>
 </html>
