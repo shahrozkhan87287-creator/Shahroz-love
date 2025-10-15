@@ -1,237 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Roast Ahmad 🔥</title>
-<meta name="description" content="A lovingly savage, PG-13 roast machine for Ahmad." />
-<style>
-  :root{
-    --bg1:#0f0f12; --bg2:#1b1b22; --acc:#ff3e6c; --acc2:#ffcc00; --good:#12d07a;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0}
-  body{
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Poppins", Arial, sans-serif;
-    color:#f8f8fb; background: radial-gradient(1200px 800px at 20% 10%, #1f1f28 0%, transparent 60%),
-                    radial-gradient(900px 900px at 80% 90%, #161621 0%, transparent 60%),
-                    linear-gradient(135deg,var(--bg1),var(--bg2));
-    overflow-x:hidden;
-  }
-  header{text-align:center;padding:28px 12px 6px}
-  h1{margin:0;font-size:clamp(28px,6vw,56px);letter-spacing:.4px}
-  .sub{opacity:.8;margin-top:6px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I Love You ❤️</title>
 
-  .wrap{max-width:980px;margin:12px auto 90px;padding:0 14px;position:relative}
-  .card{
-    background: rgba(255,255,255,0.06); border:1px solid #ffffff1a; border-radius:18px;
-    padding:16px; box-shadow: 0 14px 36px rgba(0,0,0,.35); position:relative; overflow:hidden;
-  }
-  .grid{display:grid;gap:14px;grid-template-columns: repeat(auto-fit,minmax(260px,1fr))}
-  .badge{
-    position:absolute; right:-36px; top:12px; transform:rotate(20deg);
-    background:#ffcc00; color:#222; padding:6px 18px; font-weight:900; box-shadow:0 12px 28px rgba(0,0,0,.35)
-  }
+  <!-- Social cards -->
+  <meta name="description" content="A tiny romantic page with a cute bear, floating hearts, and one important question." />
+  <meta property="og:title" content="I Love You ❤️" />
+  <meta property="og:description" content="Tap yes… and watch the magic ✨" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%23ffd6e7'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Verdana' font-size='72' fill='%23b30059'>I Love You ❤️</text></svg>" />
 
-  .btn{
-    appearance:none;border:none;cursor:pointer;
-    background: linear-gradient(135deg,#ff3e6c,#ff6a95); color:#fff;
-    padding:12px 16px;border-radius:12px;font-weight:800;
-    box-shadow:0 10px 24px rgba(0,0,0,.25);transition:transform .12s ease
-  }
-  .btn:hover{transform:translateY(-2px)}
-  .btn-alt{background:linear-gradient(135deg,#2dd4bf,#84ffc9);color:#102}
-  .row{display:flex;flex-wrap:wrap;gap:10px}
+  <!-- Tiny inline “favicon” -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%96%3C/text%3E%3C/svg%3E">
 
-  .out{
-    min-height:120px; padding:12px; border-radius:12px; background:#10131a; border:1px solid #ffffff14;
-    font-size:18px; line-height:1.5; margin-top:10px
-  }
-  .tiny{font-size:12px;opacity:.75}
-  .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+  <style>
+    :root{
+      --pink:#ff6b9a; --rose:#ff4d79; --deep:#9a0f4c;
+      --bg1:#ffe6f2; --bg2:#ffd6e7; --bg3:#ffcce0; --card:#ffffffc2;
+      --shadow:0 20px 50px rgba(0,0,0,.18);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Poppins", Arial, sans-serif;
+      color: var(--deep); display:flex; align-items:center; justify-content:center;
+      overflow:hidden; background: radial-gradient(1200px 800px at 20% 10%, #fff0f6 0%, transparent 60%),
+                              radial-gradient(900px 900px at 80% 90%, #ffe3ee 0%, transparent 60%),
+                              linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+      background-size: 200% 200%;
+      animation: bgmove 16s ease-in-out infinite;
+    }
+    @keyframes bgmove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    @media (prefers-reduced-motion: reduce){
+      body{animation:none}
+      .floaty,.bounce,*{animation: none!important; transition:none!important}
+    }
 
-  .meter{height:16px;background:#0e0f13;border-radius:999px;overflow:hidden;border:1px solid #0006;margin:8px 0 4px}
-  .bar{height:100%;width:20%;background:linear-gradient(90deg,#ffd166,#ff3e6c);transition:width .25s ease}
+    /* hearts layer */
+    .hearts{position:fixed; inset:0; pointer-events:none; z-index:0}
 
-  /* floating fire & popcorn */
-  .floaty{position:fixed;inset:0;pointer-events:none;z-index:0}
-  .emoji{position:absolute;font-size:20px;opacity:.9;filter:drop-shadow(0 6px 12px rgba(0,0,0,.45));animation:up 7s linear forwards}
-  @keyframes up{from{transform:translateY(100vh)}to{transform:translateY(-20vh);opacity:0}}
+    .card{
+      position:relative; z-index:1; width:min(720px,92vw);
+      padding:28px 22px 30px; border-radius:24px;
+      background: var(--card); backdrop-filter: blur(8px);
+      box-shadow: var(--shadow); text-align:center; border:1px solid rgba(255,255,255,.7);
+    }
+    h1{ margin:6px 0 0; font-size: clamp(28px, 6vw, 44px); color: var(--deep);
+        text-shadow: 0 2px 14px rgba(255,105,180,.30); }
+    .sunshine{ font-size: clamp(18px, 3.6vw, 22px); color:#ff3e74; margin:6px 0 14px; font-weight:700 }
+    .bear{ font-size: clamp(76px, 16vw, 120px); margin: 10px 0 4px; filter: drop-shadow(0 6px 12px rgba(0,0,0,.18)); }
+    .bounce{ animation: bounce 2.2s ease-in-out infinite }
+    @keyframes bounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 
-  /* dramatic shake */
-  .shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97) both}
-  @keyframes shake{
-    10%,90%{transform:translate3d(-1px,0,0)}
-    20%,80%{transform:translate3d(2px,0,0)}
-    30%,50%,70%{transform:translate3d(-4px,0,0)}
-    40%,60%{transform:translate3d(4px,0,0)}
-  }
+    h2{ font-weight:650; margin:10px 0 18px; font-size: clamp(18px, 4.2vw, 26px) }
 
-  footer{
-    position:fixed;left:0;right:0;bottom:0;padding:10px 14px;
-    background:linear-gradient(90deg,transparent,#ffffff10,transparent);
-    border-top:1px solid #ffffff18;backdrop-filter:blur(6px);
-    display:flex;justify-content:center;gap:16px;font-size:12px
-  }
-</style>
+    .buttons{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:8px }
+    button{
+      appearance:none; border:none; padding:14px 22px; border-radius:14px;
+      font-size: clamp(16px, 4vw, 18px); cursor:pointer; user-select:none;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+    .btn-yes{ background: linear-gradient(135deg,#ff4d79,#ff6b9a); color:#fff }
+    .btn-yes:hover{ transform: translateY(-2px) scale(1.03) }
+    .btn-no{ background:#fff; color:var(--deep); border:1px solid rgba(0,0,0,.06); position:relative }
+    .row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px }
+
+    #message{ margin-top:22px; min-height:2.8em; font-size:clamp(20px,5vw,30px); font-weight:800; letter-spacing:.2px }
+    .glow{ text-shadow: 0 0 20px rgba(255,105,180,.45) }
+
+    /* top-right controls */
+    .controls{
+      position: fixed; right: 16px; top: 14px; z-index: 3; display:flex; gap:10px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.18));
+    }
+    .ctrl{ background:#fff; border:1px solid rgba(0,0,0,.06); padding:10px 12px; border-radius:12px; cursor:pointer }
+    .ctrl:active{ transform: scale(.98) }
+
+    /* confetti canvas */
+    #confetti{ position:fixed; inset:0; pointer-events:none; z-index:2 }
+
+    .note{ margin-top:6px; font-size:12px; opacity:.7 }
+
+    /* keep No button inside the card */
+    .btn-wrap{ position: relative }
+  </style>
 </head>
 <body>
-  <div class="floaty" id="floaty" aria-hidden="true"></div>
-
-  <header>
-    <h1>Roast Ahmad 🔥</h1>
-    <div class="sub">100% friendly fire. PG-13. Hydrate after reading.</div>
-  </header>
-
-  <div class="wrap">
-    <section class="card">
-      <div class="badge">Certified Roast</div>
-      <h2>Roast Console</h2>
-      <div class="row" style="margin-bottom:6px">
-        <button class="btn" id="btnRoast">Roast Him</button>
-        <button class="btn btn-alt" id="btnCompliment">Balance with Compliment</button>
-        <button class="btn" style="background:linear-gradient(135deg,#ff1744,#ff5252)" id="btnDont">Do Not Click</button>
-      </div>
-
-      <div class="meter"><div class="bar" id="bar"></div></div>
-      <div class="tiny mono" id="level">Spice Level: 20%</div>
-
-      <div class="out mono" id="out">Press “Roast Him” to begin the damage. 🍿</div>
-      <div class="tiny">Tip: If he cries, press “Balance with Compliment” then immediately roast again for emotional cardio.</div>
-    </section>
-
-    <div class="grid" style="margin-top:14px">
-      <section class="card">
-        <h2>Instant Excuse Generator</h2>
-        <p class="tiny">For when Ahmad gets roasted and says “that’s not me.”</p>
-        <div class="row">
-          <button class="btn" id="btnExcuse">Generate Excuse</button>
-        </div>
-        <div class="out mono" id="excuseOut">…waiting for denial protocol…</div>
-      </section>
-
-      <section class="card">
-        <h2>Apology (Fake)</h2>
-        <p class="tiny">Click to “apologize” (this does nothing).</p>
-        <div class="row">
-          <button class="btn btn-alt" id="btnSorry">I’m Sorry (lol)</button>
-        </div>
-        <div class="out mono" id="sorryOut">Status: Not sorry.</div>
-      </section>
-    </div>
+  <!-- Controls -->
+  <div class="controls" aria-label="Page controls">
+    <button class="ctrl" id="musicBtn" aria-pressed="false" title="Play music">🎵 Play</button>
+    <button class="ctrl" id="shareBtn" title="Share this page">🔗 Share</button>
   </div>
 
-  <footer>
-    <span>Made with love + flames for Ahmad.</span>
-    <span>•</span>
-    <span class="tiny">Roasts are jokes. Be nice IRL.</span>
-  </footer>
+  <!-- Confetti -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
 
-<script>
-const $ = s => document.querySelector(s);
-const rand = (a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+  <!-- Floating hearts -->
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
 
-const roasts = [
-  "Ahmad’s Wi-Fi has more bars than his jokes.",
-  "If procrastination were a sport, Ahmad would still miss the deadline.",
-  "Ahmad’s playlists are just YouTube ads with commitment issues.",
-  "He types like he’s trying to scare the keyboard into working.",
-  "Ahmad updates his status more than his skills.",
-  "He’s the human version of ‘low battery – continue anyway’.",
-  "Even his mirror asked for privacy.",
-  "If confidence is key, Ahmad lost his keychain.",
-  "Ahmad’s cooking is so experimental it needs ethics approval.",
-  "He says ‘trust the process’; the process files a complaint.",
-  "Ahmad jogs my memory—by running from responsibilities.",
-  "His fashion sense is ‘laundry day: extended cut’.",
-  "Even autocorrect refuses to fix his life choices.",
-  "Ahmad’s alarm clock hit snooze on him.",
-  "He treats deadlines like speed limits: casual suggestions."
-];
+  <!-- Main card -->
+  <div class="card" id="card">
+    <h1 class="glow">I Love You ❤️</h1>
+    <div class="sunshine">My Sunshine 😊</div>
+    <div class="bear bounce" aria-hidden="true">🧸</div>
 
-const compliments = [
-  "Low-key hilarious (don’t let it get to your head).",
-  "Drip appears every third Thursday—rare, but iconic.",
-  "Braincell count doubled today. Huge W.",
-  "Honestly, vibes are immaculate for once.",
-  "Caught you being kind. Keep that bug.",
-  "Main character energy unlocked (DLC pending)."
-];
+    <h2>Do you love <strong>Shahroz</strong>?</h2>
 
-const excuses = [
-  "That wasn’t me, that was my evil twin—also named Ahmad.",
-  "Lag. Terrible lag. In real life.",
-  "It’s a social experiment. You wouldn’t get it.",
-  "My barber took my confidence with the fade.",
-  "Astrologically, I’m not responsible today.",
-  "Touching grass patch scheduled for Q4.",
-  "The group chat framed me.",
-  "I’m in my mysterious era (unproductive)."
-];
+    <div class="buttons">
+      <button class="btn-yes" id="yesBtn" aria-label="Yes, I love Shahroz">Yes 💖</button>
+      <span class="btn-wrap">
+        <button class="btn-no" id="noBtn" aria-label="No">No 🙈</button>
+      </span>
+    </div>
 
-const out = $('#out'), bar = $('#bar'), levelTxt = $('#level');
-let spice = 20;
-function setSpice(n){ spice = Math.max(0, Math.min(100, n)); bar.style.width = spice+'%'; levelTxt.textContent = 'Spice Level: '+spice+'%'; }
-setSpice(spice);
+    <div id="message" role="status" aria-live="polite"></div>
+    <div class="note">Tap “Yes” for a surprise ✨</div>
+  </div>
 
-function pop(text){
-  const t=document.createElement('div');
-  t.textContent=text;
-  Object.assign(t.style,{
-    position:'fixed',left:'50%',top:'18px',transform:'translateX(-50%)',
-    background:'rgba(0,0,0,.75)',color:'#fff',padding:'10px 14px',borderRadius:'12px',
-    zIndex:9,boxShadow:'0 10px 30px rgba(0,0,0,.4)'
-  });
-  document.body.appendChild(t);
-  setTimeout(()=>{ t.style.transition='opacity .4s'; t.style.opacity='0'; },1200);
-  setTimeout(()=>t.remove(),1700);
-}
+  <!-- Soft music (no autoplay; user must tap Play) -->
+  <audio id="bgm" preload="auto" loop>
+    <!-- royalty-free short loop suggestion: replace with your own mp3/ogg if you want -->
+    <!-- You can upload an mp3 to the repo and reference it here, e.g. src="soft-loop.mp3" -->
+  </audio>
 
-// floating emojis (fire + popcorn)
-const floaty = $('#floaty');
-const floaters = ['🔥','🍿','🔥','🥤','🔥','🧯','🔥','🧃'];
-function spawnEmoji(){
-  const e=document.createElement('div');
-  e.className='emoji';
-  e.textContent=floaters[rand(0,floaters.length-1)];
-  e.style.left=rand(2,95)+'vw';
-  e.style.animationDuration=(5+Math.random()*4)+'s';
-  e.style.fontSize=(20+Math.random()*26)+'px';
-  floaty.appendChild(e);
-  setTimeout(()=>e.remove(),9000);
-}
-let timer=setInterval(spawnEmoji, 800);
+  <script>
+    // ===== Floating hearts =====
+    const heartsWrap = document.getElementById('hearts');
+    let reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function spawnHeart(){
+      if(reduceMotion) return;
+      const d = document.createElement('div');
+      d.textContent = ['💖','💕','💗'][Math.floor(Math.random()*3)];
+      Object.assign(d.style,{
+        position:'absolute',
+        left: Math.random()*100+'vw',
+        bottom: '-10vh',
+        fontSize: (18+Math.random()*28)+'px',
+        opacity:.8,
+        transform:'translateY(0)',
+        transition:'transform 7s linear, opacity 7s linear'
+      });
+      heartsWrap.appendChild(d);
+      requestAnimationFrame(()=>{
+        d.style.transform='translateY(-120vh)';
+        d.style.opacity=0;
+      });
+      setTimeout(()=>d.remove(),7000);
+    }
+    setInterval(spawnHeart, 340);
 
-$('#btnRoast').onclick = ()=>{
-  document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
-  const spiceBonus = Math.floor(spice/20);
-  const line = roasts[rand(0,roasts.length-1)];
-  out.textContent = "🔥 " + line + (spiceBonus ? " (Spice x"+(1+spiceBonus/10)+")" : "");
-  setSpice(spice + rand(5,15));
-  spawnEmoji(); spawnEmoji();
-};
+    // ===== Yes / No logic =====
+    const msg   = document.getElementById('message');
+    const yesBtn= document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const card  = document.getElementById('card');
 
-$('#btnCompliment').onclick = ()=>{
-  out.textContent = "✨ " + compliments[rand(0,compliments.length-1)];
-  setSpice(spice - rand(8,14));
-  pop('Humanity restored (briefly)');
-};
+    // Keep No button inside card & make it dodge cursor
+    function moveNo(e){
+      const rect = noBtn.getBoundingClientRect();
+      const wrap = card.getBoundingClientRect();
+      const mx = (e.touches?.[0]?.clientX ?? e.clientX);
+      const my = (e.touches?.[0]?.clientY ?? e.clientY);
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top  + rect.height/2;
+      const dist = Math.hypot(cx - mx, cy - my);
+      if(dist < 120 || e.type==='touchstart'){
+        // random offset
+        let dx = (Math.random()*2 - 1) * 220;
+        let dy = (Math.random()*2 - 1) * 160;
 
-$('#btnDont').onclick = ()=>{
-  document.body.classList.add('shake'); setTimeout(()=>document.body.classList.remove('shake'),500);
-  out.textContent = "🚨 You clicked the forbidden button. Roast shields offline.";
-  setSpice(spice + rand(12,20));
-  for(let i=0;i<5;i++) spawnEmoji();
-};
+        // proposed new position
+        const cur = getComputedStyle(noBtn).transform;
+        const m = cur !== 'none' ? new DOMMatrix(cur) : new DOMMatrix();
+        let nx = m.m41 + dx, ny = m.m42 + dy;
 
-$('#btnExcuse').onclick = ()=>{
-  $('#excuseOut').textContent = "🧠 " + excuses[rand(0,excuses.length-1)];
-};
+        // clamp to card bounds so it never escapes
+        const pad = 16;
+        const minX = wrap.left - rect.left + pad - rect.width/2;
+        const maxX = wrap.right - rect.right - pad + rect.width/2;
+        const minY = wrap.top - rect.top + pad - rect.height/2;
+        const maxY = wrap.bottom - rect.bottom - pad + rect.height/2;
+        nx = Math.max(minX, Math.min(maxX, nx));
+        ny = Math.max(minY, Math.min(maxY, ny));
 
-$('#btnSorry').onclick = ()=>{
-  $('#sorryOut').textContent = "✅ Apology submitted. Server responded: 418 I’m a teapot.";
-  pop('Apology rejected (with love)');
-};
-</script>
+        noBtn.style.transform = `translate(${nx}px, ${ny}px)`;
+      }
+    }
+    noBtn.addEventListener('mousemove', moveNo);
+    noBtn.addEventListener('touchstart', moveNo, {passive:true});
+
+    // ===== Confetti =====
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    let W=0,H=0, pieces=[];
+    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+
+    function burstConfetti(){
+      if(reduceMotion) return;
+      for(let i=0;i<220;i++){
+        pieces.push({
+          x: Math.random()*W,
+          y: -20 - Math.random()*H,
+          s: 4+Math.random()*6,
+          c: ['#ff6b9a','#ff4d79','#ffd1e1','#ff99bb'][Math.floor(Math.random()*4)],
+          a: Math.random()*Math.PI*2,
+          v: 1.2+Math.random()*2.4,
+          w: 0.02+Math.random()*0.06
+        });
+      }
+      let t=0;
+      const loop=()=>{
+        ctx.clearRect(0,0,W,H);
+        pieces.forEach(p=>{
+          p.y += p.v;
+          p.x += Math.sin(p.a + t*p.w);
+          t += 0.001;
+          ctx.save(); ctx.fillStyle = p.c; ctx.translate(p.x,p.y); ctx.rotate(p.a);
+          ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s); ctx.restore();
+        });
+        pieces = pieces.filter(p=>p.y < H+40);
+        if(pieces.length) requestAnimationFrame(loop);
+      };
+      loop();
+    }
+
+    yesBtn.addEventListener('click', ()=>{
+      msg.textContent = '💞 SHAHROZ APKA HUA 💞';
+      msg.classList.add('glow');
+      yesBtn.disabled = noBtn.disabled = true;
+      burstConfetti();
+    });
+
+    noBtn.addEventListener('click', ()=>{
+      msg.textContent = '😜 NA KR K B SHAHROZ APKA HUA 😜';
+      msg.classList.add('glow');
+    });
+
+    // ===== Music toggle (user-initiated) =====
+    const musicBtn = document.getElementById('musicBtn');
+    const bgm = document.getElementById('bgm');
+    // Tip: add your own file to the repo and set: bgm.src = 'soft-loop.mp3';
+    musicBtn.addEventListener('click', async ()=>{
+      try{
+        if(!bgm.src){ alert('Tip: upload a soft MP3 (e.g. soft-loop.mp3) and set bgm.src in the code.'); return; }
+        if(bgm.paused){ await bgm.play(); musicBtn.textContent='🎵 Pause'; musicBtn.setAttribute('aria-pressed','true'); }
+        else{ bgm.pause(); musicBtn.textContent='🎵 Play'; musicBtn.setAttribute('aria-pressed','false'); }
+      }catch(e){ console.warn(e); }
+    });
+
+    // ===== Share button =====
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', async ()=>{
+      const data = { title:'I Love You ❤️', text:'Open this… I made it for you 💖', url: location.href };
+      if(navigator.share){ try{ await navigator.share(data);}catch(e){} }
+      else{
+        navigator.clipboard?.writeText(location.href);
+        shareBtn.textContent = '✅ Copied';
+        setTimeout(()=>shareBtn.textContent='🔗 Share', 1600);
+      }
+    });
+  </script>
 </body>
 </html>
