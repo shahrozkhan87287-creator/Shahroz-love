@@ -1,123 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>I Love You ❤️</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #ffe6f2, #ffccd5, #ffcce0);
-      background-size: 400% 400%;
-      animation: bgmove 10s ease infinite;
-      color: #d6336c;
+    :root{
+      --pink:#ff6b9a;
+      --rose:#ff4d79;
+      --deep:#b30059;
+      --bg1:#ffe6f2;
+      --bg2:#ffd6e7;
+      --bg3:#ffcce0;
+      --card:#ffffffaa;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Poppins", sans-serif;
+      color: var(--deep);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+      background-size: 300% 300%;
+      animation: bgmove 16s ease-in-out infinite;
+    }
+    @keyframes bgmove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    @keyframes bgmove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hearts{position:fixed;inset:0;pointer-events:none;z-index:0}
+
+    .card{
+      position:relative;
+      z-index:1;
+      width:min(680px,92vw);
+      padding:28px 22px 30px;
+      border-radius:24px;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.12);
+      text-align:center;
+      border:1px solid rgba(255,255,255,.6);
+    }
+    h1{
+      margin:6px 0 0;
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--deep);
+      text-shadow: 0 2px 12px rgba(255,105,180,.35);
+    }
+    .sunshine{
+      font-size: clamp(18px, 3vw, 22px);
+      color: #ff4d79;
+      margin: 6px 0 10px;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    }
+    .bear{
+      font-size: clamp(72px, 16vw, 120px);
+      margin: 10px 0 2px;
+      animation: bounce 2.2s ease-in-out infinite;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
+    }
+    @keyframes bounce{
+      0%,100%{transform: translateY(0)}
+      50%{transform: translateY(-10px)}
     }
 
-    h1 {
-      font-size: 3em;
-      margin-top: 100px;
-      color: #b30059;
-      text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+    h2{
+      font-weight:600;
+      margin: 12px 0 18px;
+      font-size: clamp(18px, 4.2vw, 26px);
     }
 
-    .bear {
-      font-size: 100px;
-      margin: 20px 0;
-      animation: bounce 2s infinite;
+    .buttons{
+      display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+    }
+    button{
+      appearance:none;
+      border:none;
+      padding:14px 22px;
+      border-radius:14px;
+      font-size: clamp(16px, 4vw, 18px);
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      user-select:none;
+    }
+    .btn-yes{
+      background: var(--rose);
+      color:#fff;
+    }
+    .btn-yes:hover{ transform: translateY(-2px) scale(1.03); }
+    .btn-no{
+      background:#fff;
+      color:var(--deep);
+      border:1px solid rgba(0,0,0,.06);
+      position:relative;
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    #message{
+      margin-top:24px;
+      min-height: 2.6em;
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight:800;
+      color: var(--deep);
+      text-shadow: 0 0 20px rgba(255,105,180,.35);
+      letter-spacing:.2px;
+      line-height:1.3;
     }
 
-    h2 {
-      font-weight: normal;
-      font-size: 1.5em;
-      margin-bottom: 30px;
-    }
-
-    button {
-      background-color: #ff4d79;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    button:hover {
-      background-color: #ff1a66;
-      transform: scale(1.05);
-    }
-
-    #message {
-      font-size: 2em;
-      margin-top: 50px;
-      color: #b30059;
-      font-weight: bold;
-      text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-    }
-
-    /* Floating hearts animation */
-    .heart {
-      position: fixed;
-      color: #ff6699;
-      font-size: 24px;
-      animation: float 6s ease-in infinite;
-      opacity: 0.7;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    canvas#confetti{
+      position:fixed;inset:0;pointer-events:none;z-index:2;
     }
   </style>
 </head>
 <body>
-  <h1>I Love You ❤️</h1>
-  <div class="bear">🧸</div>
-  <h2>Do you love Shahroz?</h2>
-  <button onclick="answer('yes')">Yes 💖</button>
-  <button onclick="answer('no')">No 🙈</button>
+  <canvas id="confetti"></canvas>
+  <div class="hearts" id="hearts"></div>
 
-  <div id="message"></div>
+  <div class="card">
+    <h1>I Love You ❤️</h1>
+    <div class="sunshine">My Sunshine 😊</div>
+    <div class="bear" aria-hidden="true">🧸</div>
+
+    <h2>Do you love <strong>Shahroz</strong>?</h2>
+
+    <div class="buttons">
+      <button class="btn-yes" id="yesBtn">Yes 💖</button>
+      <button class="btn-no" id="noBtn">No 🙈</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
 
   <script>
-    function answer(response) {
-      const msg = document.getElementById("message");
-      if (response === "yes") {
-        msg.textContent = "💞 SHAHROZ APKA HUA 💞";
-      } else {
-        msg.textContent = "😜 NA KR K B SHAHROZ APKA HUA 😜";
+    // floating hearts
+    const heartsWrap = document.getElementById('hearts');
+    setInterval(()=>{
+      const d=document.createElement('div');
+      d.textContent=['💖','💕','💗'][Math.floor(Math.random()*3)];
+      Object.assign(d.style,{
+        position:'absolute',
+        left:Math.random()*100+'vw',
+        bottom:'-10vh',
+        fontSize:(18+Math.random()*26)+'px',
+        opacity:0.7,
+        transition:'transform 7s linear, opacity 7s linear',
+      });
+      heartsWrap.appendChild(d);
+      requestAnimationFrame(()=>{
+        d.style.transform='translateY(-120vh)';
+        d.style.opacity=0;
+      });
+      setTimeout(()=>d.remove(),7000);
+    },350);
+
+    const msg=document.getElementById('message');
+    const yesBtn=document.getElementById('yesBtn');
+    const noBtn=document.getElementById('noBtn');
+
+    // moving No button
+    function moveNo(e){
+      const rect=noBtn.getBoundingClientRect();
+      const mx=e.clientX||e.touches?.[0]?.clientX;
+      const my=e.clientY||e.touches?.[0]?.clientY;
+      const dist=Math.hypot(rect.x- mx, rect.y- my);
+      if(dist<100){
+        noBtn.style.transform=`translate(${(Math.random()*2-1)*200}px, ${(Math.random()*2-1)*120}px)`;
       }
     }
+    noBtn.addEventListener('mousemove',moveNo);
+    noBtn.addEventListener('touchstart',moveNo);
 
-    // Floating hearts
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.textContent = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 7000);
+    // confetti
+    const c=document.getElementById('confetti');
+    const ctx=c.getContext('2d');let W,H;function resize(){W=c.width=innerWidth;H=c.height=innerHeight}resize();addEventListener('resize',resize);
+    function confetti(){
+      let p=[];for(let i=0;i<150;i++)p.push({x:Math.random()*W,y:Math.random()*H,s:4+Math.random()*4,c:['#ff6b9a','#ff4d79','#ffd1e1'][Math.floor(Math.random()*3)],v:1+Math.random()*2});
+      (function draw(){ctx.clearRect(0,0,W,H);p.forEach(o=>{ctx.fillStyle=o.c;ctx.fillRect(o.x,o.y,o.s,o.s);o.y+=o.v;if(o.y>H)o.y=-10;});requestAnimationFrame(draw)})();
     }
-    setInterval(createHeart, 400);
+
+    yesBtn.onclick=()=>{msg.textContent='💞 SHAHROZ APKA HUA 💞';confetti();}
+    noBtn.onclick=()=>{msg.textContent='😜 NA KR K B SHAHROZ APKA HUA 😜';}
   </script>
 </body>
 </html>
